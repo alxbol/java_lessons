@@ -8,6 +8,6 @@ class MyFirstProgram {
         Point p2 = new Point();
         p2.x = 400;
         p2.y = 400;
-        System.out.println(Point.distance(p1, p2));
+        System.out.println(p1.distance(p1, p2));
     }
 }

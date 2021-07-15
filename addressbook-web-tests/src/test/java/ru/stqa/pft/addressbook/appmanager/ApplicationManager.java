@@ -1,4 +1,4 @@
-package addressbook.appmanager;
+package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,6 +10,7 @@ public class ApplicationManager {
     ChromeDriver wd;
     private SessionHelper sessionHelper;
     private GroupHelper groupHelper;
+    private ContactHelper contactHelper;
     private NavigationHelper navigationHelper;
 
     public void init() {
@@ -19,15 +20,20 @@ public class ApplicationManager {
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
-        sessionHelper.login("admin", "secret");
+        contactHelper = new ContactHelper(wd);
+        getSessionHelper().login("admin", "secret");
     }
 
     public void stop() {
-        sessionHelper.wd.quit();
+        wd.quit();
     }
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
+    }
+
+    public ContactHelper getContactHelper() {
+        return contactHelper;
     }
 
     public SessionHelper getSessionHelper() {
