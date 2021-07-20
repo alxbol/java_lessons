@@ -1,12 +1,12 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 
 public class HelperBase {
-    protected final ChromeDriver wd;
+    protected final WebDriver wd;
 
-    public HelperBase(ChromeDriver wd) {
+    public HelperBase(WebDriver wd) {
         this.wd = wd;
     }
 
