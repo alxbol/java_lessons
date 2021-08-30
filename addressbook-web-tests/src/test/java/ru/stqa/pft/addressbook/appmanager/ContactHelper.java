@@ -2,7 +2,11 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -22,16 +26,16 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void selectContact() {
-        click(By.name("selected[]"));
+    public void selectContact(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void submitContactDeletionFromHomeMenu() {
         click(By.xpath("//input[@value='Delete']"));
     }
 
-    public void initEdit() {
-        click(By.xpath("//img[@alt='Edit']"));
+    public void initEdit(int index) {
+        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
     }
 
     public void submitContactModification() {
@@ -49,5 +53,20 @@ public class ContactHelper extends HelperBase {
 
     public boolean isThereAContact() {
         return isElementPresent(By.name("entry"));
+    }
+
+    public int getContactCount() {
+        return wd.findElements(By.name("entry")).size();
+    }
+
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+        for (WebElement element : elements) {
+            String name = element.findElement(By.xpath("./td[2]")).getText();
+            ContactData contact = new ContactData(name, null, null, null, null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }
