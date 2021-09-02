@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.util.Set;
 
@@ -20,10 +21,9 @@ public class ContactModificationTest extends TestBase {
 
     @Test
     public void testContactModification() {
-        Set<ContactData> before = app.contact().all();
+        Contacts before = app.contact().all();
         ContactData modifyContact = before.iterator().next();
-        app.contact().initEditById(modifyContact.getId());
-        ContactData contact = new ContactData().withFirstname("Alexey").withLastname("Bolshakov").withAddress("Saratov").withMobilePhone("+79855005795").withEmail("bolshakov.alexey@gmail.com");
+        ContactData contact = new ContactData().withId(modifyContact.getId()).withFirstname("Alexey").withLastname("Bolshakov").withAddress("Saratov").withMobilePhone("+79855005795").withEmail("bolshakov.alexey@gmail.com");
         app.contact().modify(contact);
         app.goTo().HomePage();
         Set<ContactData> after = app.contact().all();

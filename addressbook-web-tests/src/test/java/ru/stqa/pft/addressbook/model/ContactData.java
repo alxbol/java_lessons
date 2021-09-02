@@ -3,7 +3,21 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-    private int id = 0;
+    private int id = Integer.MAX_VALUE;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id && Objects.equals(firstname, that.firstname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstname);
+    }
+
     private String firstname;
     private String lastname;
     private String address;
@@ -62,19 +76,6 @@ public class ContactData {
     public ContactData withEmail(String email) {
         this.email = email;
         return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return Objects.equals(firstname, that.firstname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstname);
     }
 
     @Override

@@ -8,8 +8,8 @@ import java.util.Set;
 public class Contacts extends ForwardingSet<ContactData> {
     private final Set<ContactData> delegate;
 
-    public Contacts(Contacts Contacts) {
-        this.delegate = new HashSet<>(Contacts.delegate);
+    public Contacts(Contacts contacts) {
+        this.delegate = new HashSet<>(contacts.delegate);
     }
 
     public Contacts() {
@@ -22,15 +22,14 @@ public class Contacts extends ForwardingSet<ContactData> {
     }
 
     public Contacts withAdded(ContactData contact) {
-        Contacts Contacts = new Contacts(this);
-        Contacts.add(contact);
-        return Contacts;
+        Contacts contacts = new Contacts(this);
+        contacts.add(contact);
+        return contacts;
     }
 
     public Contacts without(ContactData contact) {
-        Contacts Contacts = new Contacts(this);
-        Contacts.remove(contact);
-        return Contacts;
+        Contacts contacts = new Contacts(this);
+        contacts.remove(contact);
+        return contacts;
     }
 }
-

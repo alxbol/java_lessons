@@ -48,13 +48,6 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void create(GroupData group) {
-        initGroupCreation();
-        fillGroupForm(group);
-        submitGroupCreation();
-        returnToGroupPage();
-    }
-
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
     }
@@ -72,6 +65,13 @@ public class GroupHelper extends HelperBase {
             groups.add(new GroupData().withId(id).withName(name));
         }
         return groups;
+    }
+
+    public void create(GroupData group) {
+        initGroupCreation();
+        fillGroupForm(group);
+        submitGroupCreation();
+        returnToGroupPage();
     }
 
     public void modify(GroupData group) {

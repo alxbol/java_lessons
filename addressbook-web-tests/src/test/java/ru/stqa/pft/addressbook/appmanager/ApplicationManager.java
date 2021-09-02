@@ -29,7 +29,7 @@ public class ApplicationManager {
         }
 
         new WebDriverWait(wd, Duration.ofSeconds(30));
-        wd.get("http://localhost/addressbook/index.php");
+        wd.get("http://localhost/addressbook/");
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
