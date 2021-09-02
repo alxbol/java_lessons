@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
@@ -26,47 +26,46 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void selectContact(int index) {
-        wd.findElements(By.name("selected[]")).get(index).click();
+    private void selectContactById(int id) {
+        wd.findElement(By.cssSelector("input[id='" + id + "']")).click();
     }
 
     public void submitContactDeletionFromHomeMenu() {
         click(By.xpath("//input[@value='Delete']"));
     }
 
-    public void initEdit(int index) {
-        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+    public void initEditById(int id) {
+        wd.findElement(By.xpath("//a[@href='edit.php?id=" + id + "']")).click();
     }
 
     public void submitContactModification() {
         click(By.xpath("//div[@id='content']/form/input[22]"));
     }
 
-    public void submitContactDeletion() {
-        click(By.xpath("//div[@id='content']/form[2]/input[2]"));
-    }
-
-    public void createContact(ContactData contact) {
+    public void create(ContactData contact) {
         fillNewContact(contact);
         submitNewContactCreation();
     }
 
-    public boolean isThereAContact() {
-        return isElementPresent(By.name("entry"));
-    }
-
-    public int getContactCount() {
-        return wd.findElements(By.name("entry")).size();
-    }
-
-    public List<ContactData> getContactList() {
-        List<ContactData> contacts = new ArrayList<ContactData>();
-        List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+    public Contacts all() {
+        Contacts contacts = new Contacts();
+        List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
             String name = element.findElement(By.xpath("./td[2]")).getText();
-            ContactData contact = new ContactData(name, null, null, null, null);
-            contacts.add(contact);
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+            contacts.add(new ContactData().withId(id).withFirstname(name));
         }
         return contacts;
+    }
+
+    public void delete(ContactData contact) {
+        selectContactById(contact.getId());
+        submitContactDeletionFromHomeMenu();
+        acceptAlert();
+    }
+
+    public void modify(ContactData contact) {
+        fillNewContact(contact);
+        submitContactModification();
     }
 }
