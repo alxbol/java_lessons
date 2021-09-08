@@ -6,11 +6,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 public class ApplicationManager {
 
     private final String browser;
+    private final Properties properties;
     private SessionHelper sessionHelper;
     private GroupHelper groupHelper;
     private ContactHelper contactHelper;
@@ -19,9 +23,12 @@ public class ApplicationManager {
 
     public ApplicationManager(String browser) {
         this.browser = browser;
+        properties = new Properties();
     }
 
-    public void init() {
+    public void init() throws IOException {
+        String target = System.getProperty("target", "local");
+        properties.load(new FileReader(String.format("src/test/resources/%s.properties", target)));
         if (browser.equals(BrowserType.CHROME)) {
             wd = new ChromeDriver();
         } else if (browser.equals(BrowserType.FIREFOX)) {
@@ -29,12 +36,12 @@ public class ApplicationManager {
         }
 
         new WebDriverWait(wd, Duration.ofSeconds(30));
-        wd.get("http://localhost/addressbook/");
+        wd.get(properties.getProperty("web.baseUrl"));
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
         contactHelper = new ContactHelper(wd);
-        getSessionHelper().login("admin", "secret");
+        getSessionHelper().login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
     }
 
     public void stop() {

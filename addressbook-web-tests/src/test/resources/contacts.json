@@ -1,0 +1,52 @@
+[
+  {
+    "firstname": "firstname 0",
+    "lastname": "lastname 0",
+    "address": "address 0",
+    "homePhone": "2220",
+    "mobilePhone": "0000",
+    "workPhone": "1110",
+    "email": "bolshakov.alexey0@gmail.com",
+    "email2": "bolshakov.alexey0@icloud.com"
+  },
+  {
+    "firstname": "firstname 1",
+    "lastname": "lastname 1",
+    "address": "address 1",
+    "homePhone": "2221",
+    "mobilePhone": "0001",
+    "workPhone": "1111",
+    "email": "bolshakov.alexey1@gmail.com",
+    "email2": "bolshakov.alexey1@icloud.com"
+  },
+  {
+    "firstname": "firstname 2",
+    "lastname": "lastname 2",
+    "address": "address 2",
+    "homePhone": "2222",
+    "mobilePhone": "0002",
+    "workPhone": "1112",
+    "email": "bolshakov.alexey2@gmail.com",
+    "email2": "bolshakov.alexey2@icloud.com"
+  },
+  {
+    "firstname": "firstname 3",
+    "lastname": "lastname 3",
+    "address": "address 3",
+    "homePhone": "2223",
+    "mobilePhone": "0003",
+    "workPhone": "1113",
+    "email": "bolshakov.alexey3@gmail.com",
+    "email2": "bolshakov.alexey3@icloud.com"
+  },
+  {
+    "firstname": "firstname 4",
+    "lastname": "lastname 4",
+    "address": "address 4",
+    "homePhone": "2224",
+    "mobilePhone": "0004",
+    "workPhone": "1114",
+    "email": "bolshakov.alexey4@gmail.com",
+    "email2": "bolshakov.alexey4@icloud.com"
+  }
+]
