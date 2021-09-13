@@ -1,32 +1,49 @@
 package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
+    @Id
     private int id = Integer.MAX_VALUE;
     @Expose
     private String firstname;
     @Expose
     private String lastname;
     @Expose
+    @Type(type = "text")
     private String address;
     @Expose
+    @Column(name = "home")
+    @Type(type = "text")
     private String homePhone;
     @Expose
+    @Column(name = "mobile")
+    @Type(type = "text")
     private String mobilePhone;
     @Expose
+    @Column(name = "work")
+    @Type(type = "text")
     private String workPhone;
     @Expose
+    @Type(type = "text")
     private String email;
     @Expose
+    @Type(type = "text")
     private String email2;
     @Expose
+    @Type(type = "text")
     private String email3;
     @Expose
+    @Transient
     private String allPhones;
     @Expose
+    @Transient
     private String AllEmails;
 
     @Override
@@ -156,8 +173,7 @@ public class ContactData {
         return "ContactData{" +
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 '}';
     }
-
-
 }
