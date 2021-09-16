@@ -30,5 +30,6 @@ public class ContactModificationTest extends TestBase {
         assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.db().contacts();
         assertThat(after, CoreMatchers.hasItem(contact));
+        verifyGroupListInUI();
     }
 }
