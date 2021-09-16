@@ -7,7 +7,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "group_list")
@@ -26,6 +28,8 @@ public class GroupData {
     @Column(name = "group_footer")
     @Type(type = "text")
     private String footer;
+    //    @ManyToMany(mappedBy = "groups")
+    private final Set<ContactData> contacts = new HashSet<>();
 
     public String getName() {
         return name;
@@ -42,6 +46,7 @@ public class GroupData {
     public int getId() {
         return id;
     }
+
 
     @Override
     public String toString() {
@@ -82,5 +87,9 @@ public class GroupData {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, header, footer);
+    }
+
+    public Set<ContactData> getContacts() {
+        return contacts;
     }
 }
