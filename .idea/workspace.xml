@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8da2d22b-a9d4-4be4-898f-1b622a85917c" name="Default Changelist" comment="Лекция 8.2. Подготовка проекта для тестирования MantisBT">
-      <change afterPath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/HttpSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="8da2d22b-a9d4-4be4-898f-1b622a85917c" name="Default Changelist" comment="Лекция 8.3. Прямое взаимодействие с сервером по протоколу HTTP">
+      <change afterPath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/RegistrationHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/RegistrationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mantis-tests/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mantis-tests/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mantis-tests/src/test/resources/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mantis-tests/src/test/resources/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +105,6 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17555556" />
     <property name="project.structure.side.proportion" value="0.23346828" />
-    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
@@ -136,7 +132,7 @@
       <recent name="sandbox" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.LoginTests.testlogin">
+  <component name="RunManager" selected="TestNG.LoginTests">
     <configuration name="ContactDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.generators.ContactDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -169,23 +165,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactDeletionTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.addressbook.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.ContactDeletionTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GroupCreationTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
@@ -203,16 +182,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupDeletionTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
+    <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="mantis-ru.stqa.pft.mantis.tests.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.addressbook.tests.*" />
+          <option name="PATTERN" value="ru.stqa.pft.mantis.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.GroupDeletionTest" />
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.mantis.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.LoginTests" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -238,21 +217,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegistrationTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="mantis-ru.stqa.pft.mantis.tests.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.mantis.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.mantis.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.RegistrationTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ContactDataGenerator" />
-      <item itemvalue="TestNG.ContactDeletionTest" />
-      <item itemvalue="TestNG.GroupDeletionTest" />
       <item itemvalue="TestNG.ContactCreationTest" />
       <item itemvalue="TestNG.GroupCreationTest" />
       <item itemvalue="TestNG.LoginTests.testlogin" />
+      <item itemvalue="TestNG.RegistrationTests" />
+      <item itemvalue="TestNG.LoginTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.LoginTests" />
+        <item itemvalue="TestNG.RegistrationTests" />
         <item itemvalue="TestNG.LoginTests.testlogin" />
         <item itemvalue="TestNG.GroupCreationTest" />
         <item itemvalue="TestNG.ContactCreationTest" />
-        <item itemvalue="TestNG.ContactDeletionTest" />
-        <item itemvalue="TestNG.GroupDeletionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -282,7 +278,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Тест успешно выполняется" />
     <MESSAGE value="Добавлены вспомогательные методы" />
     <MESSAGE value="Задание №4" />
     <MESSAGE value="Создан класс TestBase" />
@@ -307,7 +302,8 @@
     <MESSAGE value="Задание №15: Реализовать проверку данных, загружаемых из БД" />
     <MESSAGE value="Лекция 7.5. Отключаемые проверки UI" />
     <MESSAGE value="Лекция 8.2. Подготовка проекта для тестирования MantisBT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Лекция 8.2. Подготовка проекта для тестирования MantisBT" />
+    <MESSAGE value="Лекция 8.3. Прямое взаимодействие с сервером по протоколу HTTP" />
+    <option name="LAST_COMMIT_MESSAGE" value="Лекция 8.3. Прямое взаимодействие с сервером по протоколу HTTP" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -324,11 +320,6 @@
           <url>file://$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/HttpSession.java</url>
           <line>36</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/HttpSession.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
